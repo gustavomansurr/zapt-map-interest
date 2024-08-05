@@ -56,7 +56,7 @@ const App: React.FC = () => {
           Mapa
         </Button>
         <Button selected={isListSelected} onClick={() => setSelected('lista')}>
-          Lista
+          Lojas
         </Button>
       </ButtonsContainer>
     </ThemeProvider>
