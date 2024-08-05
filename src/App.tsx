@@ -6,7 +6,7 @@ import { Content } from './components/Content';
 import { Button } from './components/Button';
 import { ButtonsContainer } from './components/ButtonsContainer';
 import InterestList from './components/InterestList';
-import { fetchInterests, Interest } from './service/api';
+import { fetchInterests, Interest } from './service/Api';
 
 const App: React.FC = () => {
   const [selected, setSelected] = useState<'mapa' | 'lista'>('mapa');

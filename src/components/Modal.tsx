@@ -1,5 +1,5 @@
 import React from 'react';
-import { Interest } from '../service/api';
+import { Interest } from '../service/Api';
 import { 
   ModalContainer, 
   ModalContent, 

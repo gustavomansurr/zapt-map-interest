@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { Interest } from '../service/api';
+import { Interest } from '../service/Api';
 import { Container, List, ListItem, Image, Title } from './InterestList.styles';
 import Modal from './Modal';
 
