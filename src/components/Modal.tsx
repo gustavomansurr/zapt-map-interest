@@ -37,14 +37,15 @@ const calculateDistance = (store1: Interest, store2: Interest): number => {
     return distanceInMeters;
   };
 
-const formatDistance = (distanceInMeters: number): string => {
-  if (distanceInMeters < 1) {
-    const distanceInCentimeters = Math.round(distanceInMeters * 100);
-    return `${distanceInCentimeters} cm`;
-  }
-  return `${Math.round(distanceInMeters)} metros`;
-};
-
+  const formatDistance = (distanceInMeters: number): string => {
+    if (distanceInMeters < 1) {
+      const distanceInCentimeters = Math.round(distanceInMeters * 100);
+      return `${distanceInCentimeters} cm`;
+    }
+    const roundedDistance = Math.round(distanceInMeters);
+    return `${roundedDistance} ${roundedDistance === 1 ? 'metro' : 'metros'}`;
+  };
+  
 interface ModalProps {
   interest: Interest;
   nearbyStores: Interest[];
