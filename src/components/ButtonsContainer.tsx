@@ -13,7 +13,7 @@ export const ButtonsContainer = styled.div`
   z-index: 1000;
   height: 70px;
   border-radius: 8px;
-  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  transition: box-shadow 0.4s ease, background-color 0.3s ease;
 
   &:hover {
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);

@@ -4,48 +4,48 @@ export const Container = styled.div`
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  padding: 10px;  /* Adiciona um pouco de espaçamento ao redor */
+  padding: 10px;  
 `;
 
 export const List = styled.ul`
   padding: 0;
   width: 100%;
-  margin: 0;  /* Remove a margem padrão */
-  list-style: none; /* Remove os marcadores padrão da lista */
+  margin: 0;  
+  list-style: none; 
 `;
 
 export const ListItem = styled.li`
   display: flex;
   align-items: center;
-  padding: 15px;  /* Aumenta o padding para mais conforto */
+  padding: 15px;  
   cursor: pointer;
   width: 100%;
   transition: transform 0.2s, box-shadow 0.2s;
-  border-radius: 8px; /* Adiciona bordas arredondadas */
-  border: 1px solid #e0e0e0; /* Adiciona uma borda mais suave */
-  background-color: #fff; /* Adiciona um fundo branco para maior contraste */
+  border-radius: 8px; 
+  border: 1px solid #e0e0e0; 
+  background-color: #fff; 
 
   &:hover {
-    transform: scale(0.98); /* Ajusta o efeito de escala para um toque mais sutil */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Melhora o efeito de sombra */
+    transform: scale(0.98); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
   }
 
   user-select: none;
 `;
 
 export const Image = styled.img`
-  width: 60px; /* Aumenta o tamanho da imagem para um visual mais impactante */
+  width: 60px; 
   height: 60px;
-  margin-right: 15px; /* Aumenta o espaçamento entre a imagem e o título */
-  border-radius: 50%; /* Mantém a imagem redonda */
-  object-fit: cover; /* Garante que a imagem se ajuste bem ao tamanho */
+  margin-right: 15px; 
+  border-radius: 50%; 
+  object-fit: cover; 
 `;
 
 export const Title = styled.div`
-  font-weight: 600; /* Torna o texto um pouco mais forte */
-  font-size: 18px; /* Aumenta o tamanho da fonte para melhor legibilidade */
+  font-weight: 600; 
+  font-size: 18px; 
   text-align: left;
   flex: 1;
-  font-family: 'Roboto', sans-serif; /* Usa uma fonte mais moderna e legível */
-  color: #333; /* Define uma cor de texto mais escura e legível */
+  font-family: 'Roboto', sans-serif; 
+  color: #333; 
 `;
