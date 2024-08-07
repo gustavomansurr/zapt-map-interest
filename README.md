@@ -13,6 +13,7 @@ O projeto **ZAP-MAP-INTEREST** é uma aplicação web desenvolvida com React e T
 
 - **Button.tsx**: Componente de botão.
 - **ButtonsContainer.tsx**: Contêiner para botões.
+- **constants.ts**: .constante para definir a escala entre pixels e metros.
 - **Content.tsx**: Componente de conteúdo principal.
 - **Header.tsx**: Componente de cabeçalho.
 - **InterestList.styles.ts**: Estilos para a lista de pontos de interesse.
@@ -59,5 +60,48 @@ Para clonar e executar este projeto localmente, siga estas etapas:
 
    ```bash
    git clone https://github.com/seu-usuario/seu-repositorio.git
+4. Navegue até o diretório do projeto:
 
+   ```bash
+   cd 'seu-repositorio'
+5. Instale as dependências do projeto:
+   ```bash
+   npm install
+6. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+7. Abra o navegador e acesse http://localhost:5173 para ver a aplicação em execução.
+
+## Estrutura de Pastas
+
+```plaintext
+├── public
+│   └── index.html
+├── src
+│   ├── assets
+│   │   └── logo-map.png
+|   |   |__ logo-zapt.png
+│   ├── components
+│   │   ├── Button.tsx
+│   │   ├── ButtonsContainer.tsx
+│   │   ├── constants.ts
+│   │   ├── Content.tsx
+│   │   ├── Header.tsx
+│   │   ├── InterestList.styles.ts
+│   │   ├── InterestList.tsx
+│   │   ├── Modal.styles.ts
+│   │   └── Modal.tsx
+│   ├── services
+│   │   └── api.ts
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── theme.ts
+│   └── vite-env.d.ts
+├── .eslintrc.cjs
+├── .gitignore
+├── package-lock.json
+├── package.json
+├── tsconfig.app.json
+├── tsconfig.json
+└── vite.config.ts
 

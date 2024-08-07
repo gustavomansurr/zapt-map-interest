@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+//Estelização para deixar o mapa responsivo 
 export const Content = styled.div`
   flex: 1;
   width: 100%;
