@@ -16,6 +16,7 @@ export const fetchInterests = async (): Promise<Interest[]> => {
     'x-api-key': '26ee8805-55f8-484a-a229-59d813131484',
   };
 
+  //Buscar os dados da API retornando em formato correto
   try {
     const response = await fetch(apiUrl, { method: 'GET', headers });
 

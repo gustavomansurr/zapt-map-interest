@@ -8,10 +8,13 @@ import { ButtonsContainer } from './components/ButtonsContainer';
 import InterestList from './components/InterestList';
 import { fetchInterests, Interest } from './service/Api';
 
+
+// Mostra o tipo de visualizaçao de mapa ou lista
 const App: React.FC = () => {
   const [selected, setSelected] = useState<'mapa' | 'lista'>('mapa');
   const [interests, setInterests] = useState<Interest[]>([]);
 
+  //Quando o botão lista é clicado é buscado as lojas da api
   useEffect(() => {
     if (selected === 'lista') {
       const loadInterests = async () => {
@@ -26,6 +29,7 @@ const App: React.FC = () => {
     }
   }, [selected]);
 
+  //Funçao que vai carregando mais interesses a medida que vou descendo com a barra de rolagem
   const loadMoreInterests = async () => {
     try {
       const newInterests = await fetchInterests();
@@ -35,9 +39,11 @@ const App: React.FC = () => {
     }
   };
 
+  //Apenas para definiir qual opçao esta selecionada se é o mapa ou lista (loja). Alem dos botoes
   const isMapSelected = selected === 'mapa';
   const isListSelected = selected === 'lista';
 
+  //Retorna o mapa ou lista dependendo do botao que esta selecionado
   return (
     <ThemeProvider theme={theme}>
       <Header />

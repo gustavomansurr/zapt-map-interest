@@ -17,6 +17,7 @@ import {
   StoreCardImage 
 } from './Modal.styles';
 
+//Funçao para calcular a distancia das 2 lojas com coordenadas da api e transforma medida pixel para metros
 const calculateDistance = (store1: Interest, store2: Interest): number => {
     if (!store1 || !store2 || !store1.coords || !store2.coords) {
       console.error('Store data is missing or invalid:', store1, store2);
@@ -35,7 +36,8 @@ const calculateDistance = (store1: Interest, store2: Interest): number => {
   
     return distanceInMeters;
   };
-
+ 
+  //Funçao para formatar a distancia, se for uma distancia menor que 1metro vai informar em cm e também no singular se for 1 metro
   const formatDistance = (distanceInMeters: number): string => {
     if (distanceInMeters < 1) {
       const distanceInCentimeters = Math.round(distanceInMeters * 100);
@@ -45,14 +47,15 @@ const calculateDistance = (store1: Interest, store2: Interest): number => {
     return `${roundedDistance} ${roundedDistance === 1 ? 'metro' : 'metros'}`;
   };
   
-interface ModalProps {
+//Funçao para componente modal, a loja selecionada, as lojas proximas e fechar o modal
+  interface ModalProps {
   interest: Interest;
   nearbyStores: Interest[];
   onClose: () => void;
 }
 
+//Funçao calcular a distancia das lojas mais proximas da loja selecionada
 const Modal: React.FC<ModalProps> = ({ interest, nearbyStores, onClose }) => {
-  // Typing store explicitly
   const sortedStores = nearbyStores
     .map((store: Interest) => ({
       ...store,
@@ -61,6 +64,7 @@ const Modal: React.FC<ModalProps> = ({ interest, nearbyStores, onClose }) => {
     .sort((a, b) => a.distance - b.distance)
     .slice(0, 2); 
 
+//Funçao para retornar as lojas mais proximas exibindo a informaçao dela e distancia
   const renderNearbyStores = () => {
     return sortedStores.map((store: Interest, index: number) => {
       const distance = calculateDistance(interest, store); 
@@ -74,6 +78,7 @@ const Modal: React.FC<ModalProps> = ({ interest, nearbyStores, onClose }) => {
     });
   };
 
+  //Retorna as informaçoes da loja selecionada e as lojas proximas, e fechamento do modal
   return (
     <ModalContainer>
       <ModalContent>

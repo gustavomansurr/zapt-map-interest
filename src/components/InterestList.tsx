@@ -4,19 +4,24 @@ import { Container, List, ListItem, Image, Title } from './InterestList.styles';
 import { PIXELS_PER_METER } from './constants';
 import Modal from './Modal';
 
+
+// Funçao para mostrar as lojas e carregar mais lojas a medida que  descer com skrol mouse
 interface InterestListProps {
   interests: Interest[];
   loadMoreInterests: () => void;
 }
 
+//Funçao para saber quais lojas estao sendo mostradas e qual que o usuario clicou
 const InterestList: React.FC<InterestListProps> = ({ interests, loadMoreInterests }) => {
   const [displayedInterests, setDisplayedInterests] = useState<Interest[]>([]);
   const [selectedInterest, setSelectedInterest] = useState<Interest | null>(null);
 
+  //Hook para exibir 10 lojas, e a medida que a barra de rolagem descer, vai atualizando para mais 10
   useEffect(() => {
     setDisplayedInterests(interests.slice(0, 10)); 
   }, [interests]);
 
+  // Funçao para verificar se a barra de rolagem já chegou no final, se nao vai carregar as lojas que falta
   const handleScroll = useCallback((e: Event) => {
     const target = e.currentTarget as HTMLDivElement;
     const bottom = target.scrollHeight - target.scrollTop === target.clientHeight;
@@ -25,6 +30,7 @@ const InterestList: React.FC<InterestListProps> = ({ interests, loadMoreInterest
     }
   }, [loadMoreInterests, displayedInterests.length, interests.length]);
 
+//Toda vez que descer a barra de rolagem vai chamar handlescroll para carregar mais lojas e verifica se ja foi carregado aquela loja
   useEffect(() => {
     const listElement = document.getElementById('interest-list');
     if (listElement) {
@@ -33,12 +39,14 @@ const InterestList: React.FC<InterestListProps> = ({ interests, loadMoreInterest
     }
   }, [handleScroll]);
 
+  //Se tiver mais lojas para mostrar, vai mostrar mais 10 se nao nao fara nada
   useEffect(() => {
     if (interests.length > displayedInterests.length) {
       setDisplayedInterests(interests.slice(0, displayedInterests.length + 10)); 
     }
   }, [interests, displayedInterests.length]);
 
+  //Funçao quando clicar em uma loja ela irá  puxar pelo id da loja
   const handleClick = (id: string) => {
     const selected = interests.find(interest => interest.id === id);
     if (selected) {
@@ -47,10 +55,12 @@ const InterestList: React.FC<InterestListProps> = ({ interests, loadMoreInterest
     }
   };
 
+  //Funçao para fechar o modal, quando tiver aberto
   const handleCloseModal = () => {
     setSelectedInterest(null);
   };
 
+  //Funçao que encontra as duas lojas mais proximas, e retorna as lojas por coordenadas
   const getNearbyStores = (selected: Interest) => {
     if (!selected) return [];
 
@@ -75,6 +85,7 @@ const InterestList: React.FC<InterestListProps> = ({ interests, loadMoreInterest
       .slice(0, 2);
   };
 
+  // Retorno de uma loja com descriçao abrindo o modal com informaçoes da loja selecionada e as duas lojas mais proximas
   return (
     <Container>
       <List id="interest-list">
