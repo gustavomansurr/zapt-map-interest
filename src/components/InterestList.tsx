@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Interest } from '../service/Api';
 import { Container, List, ListItem, Image, Title } from './InterestList.styles';
+import { PIXELS_PER_METER } from './constants';
 import Modal from './Modal';
-
-
-const PIXELS_PER_METER = 25; 
 
 interface InterestListProps {
   interests: Interest[];

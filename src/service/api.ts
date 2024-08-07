@@ -8,6 +8,7 @@ export type Interest = {
   coords: [number, number, number];
 };
 
+// Funçao para realizar a requisiçao da API
 export const fetchInterests = async (): Promise<Interest[]> => {
   const apiUrl = 'https://api.zapt.tech/v2/interests?placeId=-ltvysf4acgzdxdhf81y';
   const headers = {

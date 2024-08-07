@@ -1,5 +1,6 @@
 import React from 'react';
 import { Interest } from '../service/Api';
+import { PIXELS_PER_METER } from './constants'; 
 import { 
   ModalContainer, 
   ModalContent, 
@@ -15,8 +16,6 @@ import {
   StoreCard, 
   StoreCardImage 
 } from './Modal.styles';
-
-const PIXELS_PER_METER = 25; 
 
 const calculateDistance = (store1: Interest, store2: Interest): number => {
     if (!store1 || !store2 || !store1.coords || !store2.coords) {
