@@ -101,6 +101,9 @@ export const NearbyStores = styled.div`
 `;
 
 export const StoreCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: 1px solid #ddd; 
   padding: 15px;
   border-radius: 12px; 
@@ -116,7 +119,19 @@ export const StoreCard = styled.div`
 `;
 
 export const StoreCardImage = styled.img`
-  max-width: 120px; 
-  height: auto;
+  width: 120px; 
+  height: 120px; 
+  object-fit: cover; 
   border-radius: 8px; 
+  margin-bottom: 10px; 
+`;
+
+export const StoreCardTitle = styled.h4`
+  margin: 10px 0 5px 0; 
+`;
+
+export const StoreCardDistance = styled.p`
+  margin-top: 5px; 
+  font-size: 0.9rem; 
+  color: #666; 
 `;

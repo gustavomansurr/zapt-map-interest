@@ -14,7 +14,9 @@ import {
   NearbyStoresTitle, 
   NearbyStores, 
   StoreCard, 
-  StoreCardImage 
+  StoreCardImage,
+  StoreCardDistance,
+  StoreCardTitle
 } from './Modal.styles';
 
 //Funçao para calcular a distancia das 2 lojas com coordenadas da api e transforma medida pixel para metros
@@ -41,10 +43,10 @@ const calculateDistance = (store1: Interest, store2: Interest): number => {
   const formatDistance = (distanceInMeters: number): string => {
     if (distanceInMeters < 1) {
       const distanceInCentimeters = Math.round(distanceInMeters * 100);
-      return `${distanceInCentimeters} cm`;
+      return `${distanceInCentimeters}cm de distância`;
     }
     const roundedDistance = Math.round(distanceInMeters);
-    return `${roundedDistance} ${roundedDistance === 1 ? 'metro' : 'metros'}`;
+    return `${roundedDistance} ${roundedDistance === 1 ? 'metro' : 'metros'} de distância`;
   };
   
 //Funçao para componente modal, a loja selecionada, as lojas proximas e fechar o modal
@@ -65,18 +67,18 @@ const Modal: React.FC<ModalProps> = ({ interest, nearbyStores, onClose }) => {
     .slice(0, 2); 
 
 //Funçao para retornar as lojas mais proximas exibindo a informaçao dela e distancia
-  const renderNearbyStores = () => {
-    return sortedStores.map((store: Interest, index: number) => {
-      const distance = calculateDistance(interest, store); 
-      return (
-        <StoreCard key={index}>
-          <StoreCardImage src={store.mediaMini || store.media} alt={store.title} />
-          <h4>{store.title}</h4>
-          <p>{formatDistance(distance)}</p>
-        </StoreCard>
-      );
-    });
-  };
+const renderNearbyStores = () => {
+  return sortedStores.map((store: Interest, index: number) => {
+    const distance = calculateDistance(interest, store); 
+    return (
+      <StoreCard key={index}>
+        <StoreCardImage src={store.mediaMini || store.media} alt={store.title} />
+        <StoreCardTitle>{store.title}</StoreCardTitle>
+        <StoreCardDistance>{formatDistance(distance)}</StoreCardDistance>
+      </StoreCard>
+    );
+  });
+};
 
   //Retorna as informaçoes da loja selecionada e as lojas proximas, e fechamento do modal
   return (
